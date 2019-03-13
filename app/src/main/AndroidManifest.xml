@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="de.nanodyne.stistickers">
+
+    <application
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:name="de.nanodyne.stistickers.StickerApplication"
+        android:roundIcon="@mipmap/ic_launcher_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="de.nanodyne.stistickers.EntryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="de.nanodyne.stistickers.StickerPackListActivity"
+            android:label="@string/title_activity_sticker_packs_list" />
+        <activity
+            android:name="de.nanodyne.stistickers.StickerPackDetailsActivity"
+            android:parentActivityName="de.nanodyne.stistickers.StickerPackListActivity"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.nanodyne.stistickers.StickerPackListActivity" />
+        </activity>
+        <activity
+            android:name="de.nanodyne.stistickers.StickerPackInfoActivity"
+            android:label="@string/title_activity_sticker_pack_info"
+            android:parentActivityName="de.nanodyne.stistickers.StickerPackDetailsActivity"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.nanodyne.stistickers.StickerPackDetailsActivity" />
+        </activity>
+
+        <provider
+            android:name="de.nanodyne.stistickers.StickerContentProvider"
+            android:authorities="${contentProviderAuthority}"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.whatsapp.sticker.READ" />
+    </application>
+</manifest>
